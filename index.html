@@ -1,179 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Petal & Bloom Bouquets</title>
-<style>
-:root{
-  --cream:#fffaf4; --rose:#ff7aa2; --rose2:#e95e8b; --lav:#b89cff;
-  --yellow:#ffd166; --mint:#a8e6cf; --ink:#352b34; --muted:#766b73;
-  --card:#fff; --line:#f1dce5;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:Arial,sans-serif;color:var(--ink);background:
-radial-gradient(circle at 10% 0%,rgba(255,122,162,.15),transparent 28%),
-radial-gradient(circle at 100% 8%,rgba(184,156,255,.18),transparent 30%),var(--cream)}
-a{text-decoration:none;color:inherit}
-.container{width:min(1160px,calc(100% - 36px));margin:auto}
-header{position:sticky;top:0;z-index:20;background:rgba(255,250,244,.9);backdrop-filter:blur(12px);border-bottom:1px solid #f3e3e9}
-.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:12px;font-family:Georgia,serif;font-weight:700;font-size:1.2rem}
-.brand-mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--rose),var(--lav));font-size:20px}
-nav{display:flex;gap:22px;align-items:center;font-weight:700;color:var(--muted)}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;font-weight:800;border:0;cursor:pointer}
-.primary{background:linear-gradient(135deg,var(--rose),var(--rose2));color:#fff;box-shadow:0 10px 24px rgba(233,94,139,.24)}
-.secondary{background:#fff;border:1px solid var(--line)}
-.hero{padding:82px 0 64px}
-.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:50px;align-items:center}
-.eyebrow{display:inline-block;padding:8px 13px;border-radius:999px;background:#fff;border:1px solid var(--line);color:var(--rose2);font-weight:900;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
-h1{font-family:Georgia,serif;font-size:clamp(3.2rem,7vw,6.2rem);line-height:.92;letter-spacing:-.04em;margin:20px 0}
-h1 span{color:var(--rose2);font-style:italic}
-.hero p,.intro,.card p{color:var(--muted);line-height:1.7}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.stage{min-height:520px;border-radius:34px;position:relative;overflow:hidden;background:linear-gradient(145deg,#ffdce8,#efe5ff 56%,#fff4c7);box-shadow:0 18px 50px rgba(126,72,98,.13)}
-.flower{position:absolute;font-size:6rem;filter:drop-shadow(0 12px 16px rgba(94,60,75,.12))}
-.f1{left:16%;top:14%}.f2{left:48%;top:10%}.f3{left:60%;top:34%}.f4{left:28%;top:42%}.f5{left:45%;top:57%}.f6{left:68%;top:58%}
-.wrap{position:absolute;left:24%;right:16%;bottom:8%;height:170px;background:rgba(255,255,255,.65);clip-path:polygon(3% 0,100% 18%,74% 100%,28% 94%);backdrop-filter:blur(4px)}
-section{padding:76px 0}
-.kicker{color:var(--rose2);font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
-h2{font-family:Georgia,serif;font-size:clamp(2.3rem,4.5vw,4rem);margin:0;line-height:1}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
-.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:0 16px 40px rgba(126,72,98,.09)}
-.art{height:245px;border-radius:18px;display:grid;place-items:center;font-size:6rem;margin-bottom:16px}
-.pink{background:linear-gradient(145deg,#ffd9e5,#fff3f7)}
-.sun{background:linear-gradient(145deg,#fff0b8,#fff9df)}
-.lav{background:linear-gradient(145deg,#e7ddff,#f8f4ff)}
-.card h3{margin:0 0 8px}.price{margin-top:14px;color:var(--rose2);font-weight:900}
-.occasions{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
-.occasion{background:#fff;border:1px solid var(--line);border-radius:20px;text-align:center;padding:24px 14px;font-weight:800}
-.occasion span{display:block;font-size:2rem;margin-bottom:8px}
-.custom{background:linear-gradient(135deg,#fff2f7,#f1ebff 58%,#fff7dc)}
-.custom-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:start}
-.steps{display:grid;gap:14px;margin-top:24px}
-.step{display:flex;gap:12px;background:rgba(255,255,255,.7);padding:16px;border-radius:18px;border:1px solid rgba(233,94,139,.12)}
-.num{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--rose);color:#fff;font-weight:900;flex:0 0 36px}
-.order{background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:0 18px 50px rgba(126,72,98,.12)}
-label{display:block;font-weight:800;margin:14px 0 8px}
-input,select,textarea{width:100%;padding:14px 15px;border-radius:14px;border:1px solid #ead9e1;background:#fffdfa;font:inherit}
-textarea{min-height:110px;resize:vertical}
-.order .btn{width:100%;margin-top:18px}
-.note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:10px}
-footer{text-align:center;color:var(--muted);padding:34px 0}
-@media(max-width:900px){nav a:not(.navbtn){display:none}.hero-grid,.custom-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.occasions{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.occasions{grid-template-columns:1fr}.hero{padding-top:56px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alos Floral Arrangements | AV Area Flower Bouquets</title>
+  <meta name="description" content="Alos Floral Arrangements creates bouquet arrangements for any occasion in Palmdale, CA and the AV Area. DM on Instagram to order." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header>
-<div class="container nav">
-<a class="brand" href="#top"><div class="brand-mark">🌸</div>Petal & Bloom</a>
-<nav>
-<a href="#bouquets">Bouquets</a><a href="#occasions">Occasions</a><a href="#custom">Custom</a>
-<a class="btn primary navbtn" href="#order">Order Flowers</a>
-</nav>
-</div>
-</header>
+  <header class="site-header">
+    <div class="container nav-row">
+      <a class="brand" href="#top" aria-label="Alos Floral Arrangements home">
+        <img src="assets/logo.png" alt="Alos Floral Arrangements logo" class="brand-logo" />
+        <div>
+          <span class="brand-name">Alos Floral Arrangements</span>
+          <span class="brand-tag">DM to Order • Palmdale, CA / AV Area</span>
+        </div>
+      </a>
 
-<main id="top">
-<section class="hero">
-<div class="container hero-grid">
-<div>
-<div class="eyebrow">Fresh • Colorful • Handcrafted</div>
-<h1>Flowers made to <span>brighten</span> the moment.</h1>
-<p>Hand-tied bouquets for birthdays, anniversaries, celebrations, and everyday surprises. Choose a favorite style or build something completely custom.</p>
-<div class="actions">
-<a class="btn primary" href="#bouquets">Shop Bouquets</a>
-<a class="btn secondary" href="#order">Build a Custom Bouquet</a>
-</div>
-</div>
-<div class="stage" aria-label="Colorful bouquet illustration">
-<div class="flower f1">🌸</div><div class="flower f2">🌼</div><div class="flower f3">🌺</div>
-<div class="flower f4">🌷</div><div class="flower f5">🪻</div><div class="flower f6">🌻</div>
-<div class="wrap"></div>
-</div>
-</div>
-</section>
+      <nav class="desktop-nav">
+        <a href="#collection">Collection</a>
+        <a href="#occasions">Occasions</a>
+        <a href="#about">About</a>
+        <a href="#order">Order</a>
+      </nav>
 
-<section id="bouquets">
-<div class="container">
-<div class="kicker">Popular picks</div>
-<h2>Choose your bouquet.</h2>
-<p class="intro">Simple example arrangements for a small flower business. Swap these with real photos and pricing later.</p>
-<div class="grid">
-<article class="card"><div class="art pink">💐</div><h3>Blush Garden</h3><p>Soft pinks, whites, and greenery for a romantic, elegant look.</p><div class="price">Starting at $45</div></article>
-<article class="card"><div class="art sun">🌻</div><h3>Sunshine Mix</h3><p>Bright yellows and warm tones made to feel cheerful and playful.</p><div class="price">Starting at $40</div></article>
-<article class="card"><div class="art lav">🪻</div><h3>Lavender Dream</h3><p>Purple, blush, and cream flowers with a soft whimsical feel.</p><div class="price">Starting at $50</div></article>
-</div>
-</div>
-</section>
+      <a class="btn btn-primary nav-cta" href="https://www.instagram.com/alosarrangements/" target="_blank" rel="noreferrer">Order on Instagram</a>
+    </div>
+  </header>
 
-<section id="occasions">
-<div class="container">
-<div class="kicker">Made for every moment</div>
-<h2>Say it with flowers.</h2>
-<div class="occasions">
-<div class="occasion"><span>🎂</span>Birthdays</div>
-<div class="occasion"><span>💗</span>Anniversaries</div>
-<div class="occasion"><span>🎓</span>Graduations</div>
-<div class="occasion"><span>✨</span>Just Because</div>
-</div>
-</div>
-</section>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">AV Area Floral Arrangements</p>
+          <h1>Beautiful bouquets for every <span>celebration.</span></h1>
+          <p class="hero-text">
+            Inspired by the Alos Instagram page, this demo site keeps the same vibe—bold florals,
+            elegant presentation, and a simple path back to Instagram DMs for orders.
+          </p>
 
-<section class="custom" id="custom">
-<div class="container custom-grid">
-<div>
-<div class="kicker">Custom bouquets</div>
-<h2>Built around their favorite colors.</h2>
-<p class="intro">Customers can choose a budget, color palette, occasion, and special requests. The florist handles the rest.</p>
-<div class="steps">
-<div class="step"><div class="num">1</div><div><strong>Pick a budget</strong><br><span class="intro">Choose the bouquet size that works for you.</span></div></div>
-<div class="step"><div class="num">2</div><div><strong>Choose your vibe</strong><br><span class="intro">Pastel, bright, romantic, bold, or surprise me.</span></div></div>
-<div class="step"><div class="num">3</div><div><strong>Pickup or delivery</strong><br><span class="intro">Choose what works best for the occasion.</span></div></div>
-</div>
-</div>
+          <div class="hero-bullets">
+            <span>🌹 Arrangements for any occasion</span>
+            <span>📍 Palmdale, CA / AV Area</span>
+            <span>❤️ Hablo Español</span>
+          </div>
 
-<div class="order" id="order">
-<div class="kicker">Quick order</div>
-<h3 style="font-family:Georgia,serif;font-size:2rem;margin:0">Request a bouquet</h3>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#order">Start an Order</a>
+            <a class="btn btn-secondary" href="https://www.instagram.com/alosarrangements/" target="_blank" rel="noreferrer">View Instagram</a>
+          </div>
+        </div>
 
-<label for="occasion">Occasion</label>
-<select id="occasion">
-<option>Birthday</option><option>Anniversary</option><option>Graduation</option><option>Just Because</option><option>Other</option>
-</select>
+        <div class="hero-card">
+          <img src="assets/hero-bouquets.png" alt="Three bouquet arrangements from Alos Floral Arrangements" class="hero-image" />
+          <div class="hero-card-meta">
+            <div>
+              <strong>DM to Order 😊</strong>
+              <span>Directly connected to Instagram</span>
+            </div>
+            <a href="https://www.instagram.com/alosarrangements/" target="_blank" rel="noreferrer">@alosarrangements ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<label for="budget">Budget</label>
-<select id="budget">
-<option>$40–$55</option><option>$55–$75</option><option>$75–$100</option><option>$100+</option>
-</select>
+    <section class="social-proof">
+      <div class="container stats-grid">
+        <div class="stat-card"><strong>1.5k+</strong><span>Instagram followers</span></div>
+        <div class="stat-card"><strong>687</strong><span>Posts shared</span></div>
+        <div class="stat-card"><strong>AV Area</strong><span>Local service focus</span></div>
+        <div class="stat-card"><strong>DM Orders</strong><span>Simple customer workflow</span></div>
+      </div>
+    </section>
 
-<label for="colors">Color preference</label>
-<input id="colors" placeholder="Ex. pink, white, and lavender">
+    <section class="collection section" id="collection">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Signature collection</p>
+          <h2>Featured arrangements</h2>
+          <p>These sample cards use bouquet images cropped from the Instagram page you shared.</p>
+        </div>
 
-<label for="notes">Notes</label>
-<textarea id="notes" placeholder="Favorite flowers, delivery details, card message, etc."></textarea>
+        <div class="card-grid">
+          <article class="product-card">
+            <img src="assets/bouquet-red-1.png" alt="Red rose bouquet arrangement" />
+            <div class="product-copy">
+              <h3>Classic Red Rose</h3>
+              <p>Dramatic, romantic, and wrapped for a bold presentation.</p>
+            </div>
+          </article>
 
-<button class="btn primary" id="orderButton" type="button">Send Order Request</button>
-<div class="note" id="note">Demo only — connect this to Instagram, email, SMS, or a form service.</div>
-</div>
-</div>
-</section>
-</main>
+          <article class="product-card">
+            <img src="assets/bouquet-white.png" alt="White bouquet arrangement" />
+            <div class="product-copy">
+              <h3>Soft White Bloom</h3>
+              <p>A lighter look with delicate florals and a clean, elegant palette.</p>
+            </div>
+          </article>
 
-<footer><div class="container">© 2026 Petal & Bloom • Handcrafted with care 🌷</div></footer>
+          <article class="product-card">
+            <img src="assets/bouquet-red-2.png" alt="Luxury red bouquet arrangement" />
+            <div class="product-copy">
+              <h3>Luxury Rose Wrap</h3>
+              <p>Statement bouquet styling made for birthdays, anniversaries, and surprises.</p>
+            </div>
+          </article>
 
-<script>
-document.getElementById('orderButton').addEventListener('click', async () => {
-  const occasion=document.getElementById('occasion').value;
-  const budget=document.getElementById('budget').value;
-  const colors=document.getElementById('colors').value || 'Surprise me';
-  const notes=document.getElementById('notes').value || 'None';
-  const text=`Bouquet Request\nOccasion: ${occasion}\nBudget: ${budget}\nColors: ${colors}\nNotes: ${notes}`;
-  try{await navigator.clipboard.writeText(text)}catch(e){}
-  document.getElementById('note').textContent='Order details copied! Connect this button to Instagram, email, or SMS.';
-});
-</script>
+          <article class="product-card">
+            <img src="assets/bouquet-red-heart.png" alt="Heart-shaped red bouquet arrangement" />
+            <div class="product-copy">
+              <h3>Heart Arrangement</h3>
+              <p>Perfect for love-themed occasions and customized sentimental gifts.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img src="assets/bouquet-pastel.png" alt="Pastel bouquet arrangement" />
+            <div class="product-copy">
+              <h3>Pastel Celebration</h3>
+              <p>Soft colors and a playful luxury feel for special event gifting.</p>
+            </div>
+          </article>
+
+          <article class="product-card cta-card">
+            <div class="cta-card-content">
+              <p class="eyebrow">Custom orders</p>
+              <h3>Need something specific?</h3>
+              <p>Send inspiration photos, colors, and your budget through Instagram DM.</p>
+              <a class="btn btn-primary" href="https://www.instagram.com/alosarrangements/" target="_blank" rel="noreferrer">Message on Instagram</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="occasions section" id="occasions">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Made for every moment</p>
+          <h2>Occasions this site can highlight</h2>
+          <div class="occasion-list">
+            <div class="occasion-pill">Quinceañeras</div>
+            <div class="occasion-pill">Weddings</div>
+            <div class="occasion-pill">Birthdays</div>
+            <div class="occasion-pill">Anniversaries</div>
+            <div class="occasion-pill">Mother's Day</div>
+            <div class="occasion-pill">Graduations</div>
+            <div class="occasion-pill">Just Because</div>
+            <div class="occasion-pill">Custom Events</div>
+          </div>
+        </div>
+        <div class="dark-panel">
+          <h3>Why a site helps even with Instagram already working</h3>
+          <ul>
+            <li>Looks more established when people search the business.</li>
+            <li>Lets customers browse arrangements without scrolling the whole profile.</li>
+            <li>Creates one clean place for links, FAQs, areas served, and order steps.</li>
+            <li>Still keeps Instagram DM as the main ordering method.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <p class="eyebrow">Brand details</p>
+          <h2>On-theme with the page you sent</h2>
+          <p>
+            The design uses a luxury floral palette—deep black, rose red, blush pink, and soft gold—
+            because that matches the screenshots and the bouquet presentation style.
+          </p>
+          <p>
+            It also keeps the ordering flow simple: browse, choose a vibe, fill out a short form,
+            copy the message, and continue on Instagram.
+          </p>
+        </div>
+        <div class="about-checklist">
+          <div class="check-item">✓ Instagram-first call to action</div>
+          <div class="check-item">✓ Mobile-friendly single page</div>
+          <div class="check-item">✓ Uses actual bouquet imagery from the page</div>
+          <div class="check-item">✓ Easy to customize with real prices later</div>
+          <div class="check-item">✓ Ready to publish on GitHub Pages</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="order section" id="order">
+      <div class="container order-grid">
+        <div>
+          <p class="eyebrow">Quick order form</p>
+          <h2>Copy your order details, then send them on Instagram.</h2>
+          <p class="order-intro">
+            This keeps it simple for a small business. The form creates a message, copies it,
+            and opens the Instagram page in a new tab.
+          </p>
+        </div>
+
+        <form class="order-form" id="orderForm">
+          <label>
+            Occasion
+            <select id="occasion">
+              <option>Birthday</option>
+              <option>Anniversary</option>
+              <option>Quinceañera</option>
+              <option>Wedding</option>
+              <option>Graduation</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label>
+            Preferred colors / flowers
+            <input id="style" type="text" placeholder="Ex. red roses, pastel pink, white and gold" />
+          </label>
+
+          <label>
+            Budget
+            <select id="budget">
+              <option>$40–$60</option>
+              <option>$60–$90</option>
+              <option>$90–$130</option>
+              <option>$130+</option>
+            </select>
+          </label>
+
+          <label>
+            Pickup or delivery notes
+            <textarea id="notes" placeholder="Add date, location, custom ribbon text, or special requests"></textarea>
+          </label>
+
+          <button class="btn btn-primary" type="button" id="instagramOrderBtn">Copy Order & Open Instagram</button>
+          <p class="form-note" id="formNote">Instagram is the main ordering destination for this demo.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <strong>Alos Floral Arrangements</strong>
+        <p>Palmdale, CA / AV Area • Hablo Español</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/alosarrangements/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://www.tiktok.com/@alosarrangements" target="_blank" rel="noreferrer">TikTok</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
